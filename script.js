@@ -3,8 +3,14 @@ let existing_id = null;
 //Showing Data From LocalStorage
 function showData() {
     let contact_data = JSON.parse(localStorage.getItem('contacts')) || [];
+    let query = document.getElementById('queryBox').value;
+
+    let filtered_data = contact_data.filter(contact => {
+        return contact.name.includes(query) || contact.phone.includes(query);
+    });
+
     let all_data = "";
-    contact_data.forEach(contact => {
+    filtered_data.forEach(contact => {
         all_data +=
             `<div class = "data" id = "contactInfo">
                 Name: ${contact.name} <br> 
@@ -64,4 +70,5 @@ function edit(user_id) {
         document.getElementById('address').value = contact.address;
     }
 }
+
 showData();

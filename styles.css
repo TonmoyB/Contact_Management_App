@@ -10,7 +10,8 @@
     text-align: center;
 }
 
-.form-controll input {
+.form-controll input,
+.mainData input {
     width: 10%;
     padding: 15px;
     font-size: 15px;
