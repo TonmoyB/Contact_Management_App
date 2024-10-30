@@ -1,6 +1,5 @@
 let existing_id = null;
 
-//Showing Data From LocalStorage
 function showData() {
     let contact_data = JSON.parse(localStorage.getItem('contacts')) || [];
     let query = document.getElementById('queryBox').value;
@@ -26,7 +25,6 @@ function showData() {
     document.getElementById('showData').innerHTML = all_data;
 };
 
-// Form_Data
 const contactForm = document.getElementById('contactForm');
 contactForm.addEventListener('submit', function (event) {
     let contact_data = JSON.parse(localStorage.getItem('contacts')) || [];
