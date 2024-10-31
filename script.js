@@ -26,7 +26,7 @@ function showData() {
 };
 
 const contactForm = document.getElementById('contactForm');
-contactForm.addEventListener('submit', function (event) {
+contactForm.addEventListener('submit', (event) => {
     let contact_data = JSON.parse(localStorage.getItem('contacts')) || [];
     event.preventDefault();
 
