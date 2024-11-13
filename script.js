@@ -1,6 +1,8 @@
 let existing_id = null;
 
 function showData() {
+    // console.log("showing data");
+
     let contact_data = JSON.parse(localStorage.getItem('contacts')) || [];
     let query = document.getElementById('queryBox').value;
 
@@ -24,6 +26,18 @@ function showData() {
     });
     document.getElementById('showData').innerHTML = all_data;
 };
+
+const debounce = function (func, time) {
+    let timer;
+    return function () {
+        let context = this, args = arguments;
+        clearTimeout(timer);
+        timer = setTimeout(() => {
+            func.apply(context, args);
+        }, time);
+    }
+}
+const showDataWithDebounce = debounce(showData, 500);
 
 const contactForm = document.getElementById('contactForm');
 contactForm.addEventListener('submit', (event) => {
